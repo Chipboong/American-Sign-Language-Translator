@@ -16,6 +16,8 @@ LEARNING_RATE = 4e-3 # used 4e-3
 SEQ_LEN = 384 # used 384 for training
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu') # use GPU if available
 
+# print(os.getcwd())
+
 # Paths
 TRAIN_CSV = 'src/data/metadata/train.csv'
 DATA_DIR = 'dataset/'
@@ -25,6 +27,7 @@ set_seed(42)
 
 # Load dataset
 train_dataset = LandmarkDataset(TRAIN_CSV, DATA_DIR, seq_len=SEQ_LEN)
+print(f"Train dataset: {train_dataset}")
 train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
 
 # Model, loss, optimizer
@@ -44,7 +47,8 @@ def train():
     for epoch in range(EPOCHS):
         total_loss = 0 # lower loss means better performance
         print(f"Epoch {epoch+1}/{EPOCHS}")
-        for inputs, labels in tqdm(train_loader, desc=f"Training epoch {epoch+1}"):
+        batch_losses = []
+        for batch_idx, (inputs, labels) in enumerate(tqdm(train_loader, desc=f"Training epoch {epoch+1}")):
             inputs = inputs.to(DEVICE)
             labels = labels.to(DEVICE)
             optimizer.zero_grad()
@@ -53,7 +57,9 @@ def train():
             loss.backward()
             optimizer.step()
             total_loss += loss.item()
-        print(f"Loss: {total_loss/len(train_loader):.4f}")
+            batch_losses.append(loss.item())
+            print(f"Batch {batch_idx+1}: Loss = {loss.item():.6f}")
+        print(f"Epoch {epoch+1} Loss: {total_loss/len(train_loader):.4f}")
     save_model(model, 'asl_checkpoint_1.pth')
     print('Training complete. Model saved as asl_checkpoint_1.pth')
 
