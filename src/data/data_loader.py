@@ -18,6 +18,7 @@ class LandmarkDataset(Dataset):
         self.data_root = data_root
         self.transform = transform
         self.samples = self.df[['path', 'sign']].values
+        # print(f"Loaded {len(self.samples)} samples from {csv_path}")
         self.seq_len = seq_len
         # Load label_map from JSON file
         if label_map_path is None:
@@ -50,6 +51,7 @@ class LandmarkDataset(Dataset):
         label = self.label_map[sign]
         if self.transform:
             features = self.transform(features)
+        features = np.nan_to_num(features, nan=0.0, posinf=0.0, neginf=0.0)
         return torch.tensor(features), torch.tensor(label)
 
 # Example usage:
