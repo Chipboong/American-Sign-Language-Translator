@@ -4,9 +4,9 @@ import numpy as np
 
 # Load the model
 model = load_model('asl_cnn_model.h5')
-
+print(model.summary())
 # Load and preprocess the images
-img_paths = ['my_handsign2.jpg']  # List of image paths
+img_paths = ['a.jpg']  # List of image paths
 img_arrays = []
 for image_path in img_paths:
   # Load and preprocess each image

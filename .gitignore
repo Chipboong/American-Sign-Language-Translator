@@ -1,6 +1,7 @@
 # Ignore ASL dataset folders
 ASL_Dataset/
-WLASL/
+WSL_Dataset/
+Dataset/
 
 # Python cache and environment
 __pycache__/
