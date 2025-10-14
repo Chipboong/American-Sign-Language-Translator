@@ -1,0 +1,11 @@
+ipykernel
+numpy==1.24.4
+torch
+pandas
+matplotlib
+pyarrow
+opencv-python
+mediapipe
+tabulate
+tqdm
+json
