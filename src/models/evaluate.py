@@ -7,12 +7,12 @@ from src.utils.utils import load_model, accuracy_score
 from tqdm import tqdm
 
 # Evaluation configuration
-BATCH_SIZE = 32
+BATCH_SIZE = 512
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Paths
-VAL_CSV = '../data/val.csv'  # Update with your validation CSV path
-DATA_DIR = '../../dataset/train_landmark_files'
+VAL_CSV = 'src/data/metadata/val.csv'  # Update with your validation CSV path
+DATA_DIR = 'dataset/'
 MODEL_PATH = 'asl_checkpoint_1.pth'
 SEQ_LEN = 384  # match training config
 

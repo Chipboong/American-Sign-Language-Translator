@@ -1,0 +1,6 @@
+#ignore dataset
+ASL_Dataset/
+dataset/
+WSL_Dataset/
+#ignore file
+verify.py

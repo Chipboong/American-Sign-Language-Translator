@@ -57,8 +57,6 @@ def train():
             loss.backward()
             optimizer.step()
             total_loss += loss.item()
-            batch_losses.append(loss.item())
-            print(f"Batch {batch_idx+1}: Loss = {loss.item():.6f}")
         print(f"Epoch {epoch+1} Loss: {total_loss/len(train_loader):.4f}")
     save_model(model, 'asl_checkpoint_1.pth')
     print('Training complete. Model saved as asl_checkpoint_1.pth')
