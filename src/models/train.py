@@ -10,7 +10,7 @@ from src.utils.utils import set_seed, save_model
 from tqdm import tqdm
 
 # Training configuration
-BATCH_SIZE = 512 # train 32 samples at a time
+BATCH_SIZE = 64 # train 32 samples at a time
 EPOCHS = 20 # used 400 epochs
 LEARNING_RATE = 4e-3 # used 4e-3
 SEQ_LEN = 384 # used 384 for training
