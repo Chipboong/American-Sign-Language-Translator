@@ -17,7 +17,7 @@ from pathlib import Path
 from models.stgcn_tf import STGCN, FC, Network
 
 
-def load_trained_model(weights_path, num_classes=10, dropout=0.05):
+def load_trained_model(weights_path, num_classes=50, dropout=0.05):
     """
     Load trained ST-GCN model by reconstructing architecture and loading weights.
     
@@ -69,7 +69,7 @@ def load_trained_model(weights_path, num_classes=10, dropout=0.05):
     
     # Build the model with dummy input
     print("Building model with dummy input...")
-    dummy_input = np.random.randn(1, 128, 27, 2).astype(np.float32)
+    dummy_input = np.random.randn(1, 60, 27, 2).astype(np.float32)
     _ = model(dummy_input, training=False)
     
     # Load the weights
@@ -93,8 +93,8 @@ def predict_single(model, data, class_names):
         dict: Prediction results with class, confidence, and probabilities
     """
     # Ensure data is (128, 27, 2)
-    if data.shape != (128, 27, 2):
-        raise ValueError(f"Expected shape (128, 27, 2), got {data.shape}")
+    if data.shape != (60, 27, 2):
+        raise ValueError(f"Expected shape (60, 27, 2), got {data.shape}")
     
     # Add batch dimension: (128, 27, 2) -> (1, 128, 27, 2)
     data_batch = np.expand_dims(data, axis=0).astype(np.float32)

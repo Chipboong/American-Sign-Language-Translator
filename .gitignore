@@ -6,9 +6,10 @@ WSL_Dataset/
 MSL-ASL/
 dataset_test/
 New_MSL_Dataset/
-preprocessed_stgcn/
+preprocessed_stgcn*/
 #ignore file
 verify.py
+model_stgcn*/
 =======
 # Python
 __pycache__/

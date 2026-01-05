@@ -49,7 +49,7 @@ class MediaPipeKeypointExtractor:
             min_tracking_confidence=0.5
         )
     
-    def extract_keypoints_from_video(self, video_path, target_frames=128):
+    def extract_keypoints_from_video(self, video_path, target_frames=60):
         """
         Extract keypoints from video.
         

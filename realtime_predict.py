@@ -99,7 +99,7 @@ def detect_sign_activity(keypoints_543):
     return is_active, hand_confidence
 
 
-def resample_keypoints_to_target_frames(keypoints_list, target_frames=128):
+def resample_keypoints_to_target_frames(keypoints_list, target_frames=60):
     """
     Resample variable-length keypoint sequence to target number of frames.
     
@@ -137,12 +137,12 @@ def main():
     """Main real-time prediction function."""
     parser = argparse.ArgumentParser(description='Real-time ASL sign prediction with activity detection')
     parser.add_argument('--weights', type=str,
-                       default='models_stgcn/stgcn_20251112_143849/best_model_weights.weights.h5',
+                       default='models_stgcn1/stgcn_20251126_231939/best_model_weights.weights.h5',
                        help='Path to model weights file')
     parser.add_argument('--config', type=str,
-                       default='models_stgcn/stgcn_20251112_143849/config.json',
+                       default='models_stgcn1/stgcn_20251126_231939/config.json',
                        help='Path to config file')
-    parser.add_argument('--target_frames', type=int, default=128,
+    parser.add_argument('--target_frames', type=int, default=60,
                        help='Target number of frames for model input (will resample)')
     parser.add_argument('--confidence_threshold', type=float, default=0.7,
                        help='Minimum confidence to display prediction')

@@ -22,6 +22,7 @@ import json
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
+from keras.losses import SparseCategoricalCrossentropy
 
 # Additional logging suppression
 import logging
@@ -285,12 +286,12 @@ def main():
     print("="*70)
     
     # Configuration (matching reference PyTorch implementation)
-    DATA_DIR = "../preprocessed_stgcn"
-    OUTPUT_DIR = "../models_stgcn1"
+    DATA_DIR = "../preprocessed_stgcn_5"
+    OUTPUT_DIR = "../models_stgcn6"
     BATCH_SIZE = 32  # Changed from 16 to match reference
     EPOCHS = 100
     LEARNING_RATE = 1e-3
-    DROPOUT = 0.05  # Changed from 0.5 to match reference (critical fix!)
+    DROPOUT = 0.2  # Changed from 0.5 to match reference (critical fix!)
     
     # Create output directory
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -472,7 +473,7 @@ def main():
     
     # Save final model weights
     final_weights_path = os.path.join(model_dir, 'final_model_weights.weights.h5')
-    model.save_weights(final_weights_path)
+    model.save(final_weights_path)
     print(f"\n✓ Final model weights saved to {final_weights_path}")
     
     # Save training configuration
