@@ -1,21 +1,21 @@
 <<<<<<< HEAD
 #ignore dataset
-ASL_Dataset/
-dataset/
-WSL_Dataset/
-MS-ASL/
-dataset_test/
-New_MSL_Dataset/
-preprocessed_stgcn/
+ASL_Dataset/*
+dataset/*
+WSL_Dataset/*
+MS-ASL/*
+dataset_test/*
+New_MSL_Dataset/*
+preprocessed_stgcn/*
 preprocessed_stgcn_1/
 #ignore file
 verify.py
 #ignore folder
-models_stgcn/
-models_stgcn1/
-models_stgcn2/
-splits/
-scripts/
+models_stgcn/*
+models_stgcn1/*
+models_stgcn2/*
+splits/*
+scripts/*
 =======
 # Python
 __pycache__/
