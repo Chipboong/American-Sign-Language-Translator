@@ -10,9 +10,12 @@ preprocessed_stgcn/
 preprocessed_stgcn_1/
 #ignore file
 verify.py
-model_stgcn/
-model_stgcn1/
-model_stgcn2/
+#ignore folder
+models_stgcn/
+models_stgcn1/
+models_stgcn2/
+splits/
+scripts/
 =======
 # Python
 __pycache__/
